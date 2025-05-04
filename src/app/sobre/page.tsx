@@ -43,7 +43,7 @@ const SobrePage = () => {
             <ul className="list-disc list-inside space-y-1">
               <li>Graduação em Medicina - UNOCHAPECÓ (2019)</li>
               <li>Residência Médica em Ginecologia e Obstetrícia - Santa Casa de Porto Alegre</li>
-              <li>Subespecialização em Oncologia Ginecológica - Santa Casa de Porto Alegre</li>
+              <li>Subespecialização com ênfase em Oncologia Ginecológica - Santa Casa de Porto Alegre</li>
               <li>Mestranda - Santa Casa de Porto Alegre</li>
               <li>Capacitação em Cirurgia Robótica (em andamento) - Santa Casa de Porto Alegre</li>
               <li>Título de Patologista do Trato Genital Inferior</li>
