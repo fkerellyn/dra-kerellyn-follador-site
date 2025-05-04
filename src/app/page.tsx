@@ -10,7 +10,7 @@ const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-600">
     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
   </svg>
-);
+) ;
 
 // Updated blog post data with correct slugs
 const blogPosts = [
@@ -41,17 +41,17 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-[#fffaf5]">
       <Header />
       <main className="flex-grow">
-        {/* Hero Section - Reverted to use the new SVG logo */}
+        {/* Hero Section - Updated to use the correct SVG logo */}
         <section id="inicio" className="text-center py-16 md:py-24 bg-[#fbf0e4]"> 
           <div className="container mx-auto px-4">
             <Image
-              src="/images/logo-principal-nova.svg" // Changed to the new SVG logo
+              src="/images/logo-principal.svg" // <-- CORRIGIDO para usar o SVG correto!
               alt="Logo Dra. Kérellyn Follador - Ginecologia | Cirurgia Ginecológica"
-              width={600} // Adjusted width for SVG aspect ratio
-              height={300} // Adjusted height for SVG aspect ratio
-              className="mx-auto mb-8 w-full max-w-lg md:max-w-xl" // Use max-width for responsiveness
+              width={600} // Mantendo ajustes anteriores
+              height={300} // Mantendo ajustes anteriores
+              className="mx-auto mb-8 w-full max-w-lg md:max-w-xl" // Mantendo ajustes anteriores
               priority
-              unoptimized={true} // Added to ensure SVG is rendered directly
+              unoptimized={true} // Mantendo para qualidade SVG
             />
              <p className="text-xl text-[#a08476] mt-4">Cuidado integral e humanizado para a saúde da mulher.</p>
           </div>
@@ -194,7 +194,7 @@ export default function Home() {
                     <span>Av. Gen. Flores da Cunha, 1811 - Vila Imbui, Cachoeirinha - RS, 94940-111</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                     <span className="flex-shrink-0">(51) 3470-4123</span>
+                     <span className="flex-shrink-0">(51)  3470-4123</span>
                      <a href="tel:+555134704123" title="Ligar" className="hover:text-[#8c6b5d] ml-2">
                       <Phone className="w-5 h-5 text-[#a08476]" />
                     </a>
@@ -219,5 +219,5 @@ export default function Home() {
       </main>
       <Footer />
     </div>
-  );
+  ) ;
 }
