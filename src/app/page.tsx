@@ -1,224 +1,192 @@
-import React from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Image from 'next/image';
-import Link from 'next/link';
-import { MapPin, Phone, Instagram } from 'lucide-react';
-
-// Using a generic WhatsApp icon component
-const WhatsAppIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-600">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-  </svg>
-);
-
-// Updated blog post data with correct slugs
-const blogPosts = [
-  {
-    slug: 'blog_cirurgias_comuns',
-    title: 'Cirurgias Ginecológicas Comuns: Entendendo os Procedimentos',
-    excerpt: 'Entenda quais são as cirurgias ginecológicas mais frequentes e em que situações elas podem ser necessárias para a saúde da mulher.',
-  },
-  {
-    slug: 'blog_queixas_comuns',
-    title: 'Queixas Ginecológicas Comuns: Quando a Cirurgia Pode Ser Indicada?',
-    excerpt: 'Saiba identificar os sintomas e queixas que podem sinalizar a necessidade de uma avaliação para possível intervenção cirúrgica ginecológica.',
-  },
-  {
-    slug: 'blog_videolaparoscopia',
-    title: 'Cirurgia Minimamente Invasiva: Os Benefícios da Videolaparoscopia',
-    excerpt: 'Descubra os benefícios das técnicas minimamente invasivas, como recuperação mais rápida e menor desconforto pós-operatório.',
-  },
-  {
-    slug: 'blog_histeroscopia',
-    title: 'Histeroscopia: Um Olhar Detalhado Dentro do Útero',
-    excerpt: 'Conheça em detalhes essa importante técnica de diagnóstico e tratamento que permite visualizar e tratar problemas dentro do útero.',
-  },
-];
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Phone, MessageCircle } from 'lucide-react'; // Importar ícones
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#fffaf5]">
-      <Header />
-      <main className="flex-grow">
-        {/* Hero Section - Reverted to use the new SVG logo */}
-        <section id="inicio" className="text-center py-16 md:py-24 bg-[#fbf0e4]"> 
-          <div className="container mx-auto px-4">
-            <Image
-              src="/images/logo-principal-nova.svg" // Changed to the new SVG logo
-              alt="Logo Dra. Kérellyn Follador - Ginecologia | Cirurgia Ginecológica"
-              width={600} // Adjusted width for SVG aspect ratio
-              height={300} // Adjusted height for SVG aspect ratio
-              className="mx-auto mb-8 w-full max-w-lg md:max-w-xl" // Use max-width for responsiveness
-              priority
-              unoptimized={true} // Added to ensure SVG is rendered directly
-            />
-             <p className="text-xl text-[#a08476] mt-4">Cuidado integral e humanizado para a saúde da mulher.</p>
-          </div>
-        </section>
+    <main className="flex flex-col min-h-screen bg-[#fbf0e4]">
+      {/* Seção Inicial com Nova Logomarca */}
+      <section id="inicio" className="relative flex flex-col items-center justify-center text-center py-20 px-4 bg-gradient-to-b from-[#fbf0e4] to-[#f8e8d9]">
+        <div className="max-w-4xl mx-auto">
+          <Image
+            src="/images/logo-principal.svg" // Caminho para o novo SVG principal
+            alt="Logomarca Dra. Kérellyn Follador"
+            width={400} // Ajuste a largura base conforme necessário para o design
+            height={200} // Ajuste a altura base conforme necessário para o design
+            className="w-full max-w-md md:max-w-lg mx-auto mb-8" // Ajuste max-w-* para controlar o tamanho máximo
+            priority
+            unoptimized={true} // Tentar forçar renderização SVG direta para máxima qualidade
+          />
+          <h1 className="text-4xl md:text-5xl font-bold text-[#8c6b5d] mb-4">Dra. Kérellyn Follador</h1>
+          <p className="text-xl md:text-2xl text-[#a08476] mb-8">Ginecologia e Obstetrícia</p>
+          <Button asChild size="lg" className="bg-[#d4a38c] hover:bg-[#c8937c] text-white">
+            <Link href="#contato">Agende sua Consulta</Link>
+          </Button>
+        </div>
+      </section>
 
-        {/* Sobre Mim Section */}
-        <section id="sobre" className="py-16 md:py-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-light text-center text-[#8c6b5d] mb-10 md:mb-12">Sobre</h2>
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-              <div className="w-full md:w-1/3 flex flex-col items-center">
-                 <Image
-                  src="/images/dra-kerellyn-perfil.jpeg"
-                  alt="Dra. Kérellyn Follador"
-                  width={300}
-                  height={400}
-                  className="rounded-lg shadow-lg object-cover mb-6"
-                />
-              </div>
-              <div className="w-full md:w-2/3 text-[#4a4a4a]">
-                <h3 className="text-2xl font-semibold text-[#8c6b5d] mb-4">Dra. Kérellyn Follador</h3>
-                <p className="mb-4">
-                  Sou médica formada pela Universidade Comunitária da Região de Chapecó (UNOCHAPECÓ) em 2019. Minha paixão pela saúde da mulher me levou a buscar especialização em Ginecologia e Obstetrícia pela Santa Casa de Misericórdia de Porto Alegre.
-                </p>
-                <p className="mb-4">
-                  Com o objetivo de oferecer um cuidado ainda mais completo e especializado, realizei subespecialização em Oncologia Ginecológica, também na Santa Casa. Atualmente, sou mestranda em Patologia na UFCSPA, aprofundando meus conhecimentos para trazer o que há de mais atual para minhas pacientes.
-                </p>
-                <p className="mb-4">
-                  Estou em constante atualização e, no momento, em capacitação em Cirurgia Robótica na Santa Casa, buscando sempre as técnicas mais avançadas e minimamente invasivas.
-                </p>
-                <p className="mb-4">
-                   Possuo também o título de Patologista do Trato Genital Inferior, o que me permite um diagnóstico preciso e um tratamento direcionado para diversas condições.
-                </p>
-                <p className="mb-4">
-                  Meu compromisso é com o cuidado integral da saúde feminina, oferecendo um atendimento humanizado, ético e baseado nas melhores evidências científicas. Acredito na importância de uma relação de confiança e acolhimento com cada paciente.
-                </p>
-                <h4 className="text-xl font-semibold text-[#8c6b5d] mt-6 mb-3">Formação e Títulos:</h4>
-                <ul className="list-disc list-inside space-y-1">
-                  <li>Graduação em Medicina - UNOCHAPECÓ (2019)</li>
-                  <li>Residência Médica em Ginecologia e Obstetrícia - Santa Casa de Porto Alegre</li>
-                  <li>Subespecialização em Oncologia Ginecológica - Santa Casa de Porto Alegre</li>
-                  <li>Mestranda em Patologia - UFCSPA</li>
-                  <li>Capacitação em Cirurgia Robótica (em andamento) - Santa Casa de Porto Alegre</li>
-                  <li>Título de Patologista do Trato Genital Inferior</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Serviços Section */}
-        <section id="servicos" className="py-16 md:py-20 bg-[#fbf0e4]">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-light text-center text-[#8c6b5d] mb-10 md:mb-12">Serviços</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Service Cards */}
-              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h3 className="text-xl font-semibold text-[#8c6b5d] mb-3">Consultas Ginecológicas</h3>
-                <p className="text-[#4a4a4a]">Atendimento completo para a saúde da mulher em todas as fases da vida, incluindo exames preventivos, acompanhamento de rotina, diagnóstico e tratamento de condições ginecológicas.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h3 className="text-xl font-semibold text-[#8c6b5d] mb-3">Cirurgia Ginecológica</h3>
-                <p className="text-[#4a4a4a]">Realização de procedimentos cirúrgicos para tratamento de diversas patologias ginecológicas, utilizando técnicas modernas e seguras.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h3 className="text-xl font-semibold text-[#8c6b5d] mb-3">Oncologia Ginecológica</h3>
-                <p className="text-[#4a4a4a]">Diagnóstico, tratamento e acompanhamento de cânceres ginecológicos (colo do útero, ovário, endométrio, vulva), com abordagem multidisciplinar e foco no bem-estar da paciente.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h3 className="text-xl font-semibold text-[#8c6b5d] mb-3">Cirurgia Minimamente Invasiva</h3>
-                <p className="text-[#4a4a4a]">Utilização de técnicas como videolaparoscopia e histeroscopia para procedimentos cirúrgicos com menor tempo de recuperação, menos dor e melhores resultados estéticos.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h3 className="text-xl font-semibold text-[#8c6b5d] mb-3">Cirurgia Robótica</h3>
-                <p className="text-[#4a4a4a]">Capacitação em andamento para oferecer procedimentos com auxílio de robô, proporcionando maior precisão e segurança em cirurgias complexas.</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h3 className="text-xl font-semibold text-[#8c6b5d] mb-3">Patologia do Trato Genital Inferior</h3>
-                <p className="text-[#4a4a4a]">Diagnóstico e tratamento especializado de lesões e infecções no colo do útero, vagina e vulva, incluindo acompanhamento de HPV e realização de colposcopia.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Blog Section */}
-        <section id="blog" className="py-16 md:py-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-light text-center text-[#8c6b5d] mb-10 md:mb-12">Blog</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {blogPosts.map((post) => (
-                <div key={post.slug} className="bg-white p-6 rounded-lg shadow-md border border-[#fbf0e4] flex flex-col">
-                  <h3 className="text-xl font-semibold text-[#8c6b5d] mb-3">
-                    <Link href={`/blog/${post.slug}`} className="hover:text-[#a08476]">
-                      {post.title}
-                    </Link>
-                  </h3>
-                  <p className="text-[#4a4a4a] mb-4 flex-grow">{post.excerpt}</p>
-                  <Link href={`/blog/${post.slug}`} className="text-[#a08476] hover:text-[#8c6b5d] font-semibold mt-auto">
-                    Leia mais &rarr;
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Contato Section */}
-        <section id="contato" className="py-16 md:py-20 bg-[#fbf0e4]">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-light text-center text-[#8c6b5d] mb-10">Contato</h2>
-            <p className="text-center text-[#4a4a4a] mb-12 max-w-2xl mx-auto">
-              Para agendar sua consulta ou tirar dúvidas, entre em contato através dos canais abaixo. Será um prazer atendê-la!
+      {/* Seção Sobre */}
+      <section id="sobre" className="py-16 px-4 bg-white">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#8c6b5d] mb-8">Sobre Mim</h2>
+          <div className="max-w-3xl mx-auto text-left text-gray-700 leading-relaxed space-y-4">
+            <p>
+              Formada em Medicina pela Universidade do Vale do Itajaí (UNIVALI) em 2015, Dra. Kérellyn Follador completou sua Residência Médica em Ginecologia e Obstetrícia no Hospital Universitário Evangélico Mackenzie, em Curitiba/PR, entre 2017 e 2020.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-              {/* Local 1: Santa Casa */}
-              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h3 className="text-2xl font-semibold text-[#8c6b5d] mb-4">Santa Casa de Porto Alegre</h3>
-                <div className="space-y-3 text-[#4a4a4a]">
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="w-5 h-5 text-[#a08476] mt-1 flex-shrink-0" />
-                    <span>R. Prof. Annes Dias, 295 - Centro Histórico, Porto Alegre - RS, 90020-090</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="flex-shrink-0">(51) 3214-8000</span>
-                    <a href="tel:+555132148000" title="Ligar" className="hover:text-[#8c6b5d] ml-2">
-                      <Phone className="w-5 h-5 text-[#a08476]" />
-                    </a>
-                    <a href="https://wa.me/555132148000" title="WhatsApp" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-                      <WhatsAppIcon />
-                    </a>
-                  </div>
+            <p>
+              Buscando aprimoramento contínuo, realizou Pós-Graduação em Ginecologia Endócrina, Climatério e Contracepção pela Faculdade de Ciências Médicas da Santa Casa de São Paulo (2020-2021) e Pós-Graduação em Endoscopia Ginecológica (Videolaparoscopia e Histeroscopia) pelo Instituto Crispi de Cirurgias Minimamente Invasivas (2021-2022).
+            </p>
+            <p>
+              Atualmente, atua em seu consultório particular na Clínica Madri e faz parte do corpo clínico dos Hospitais Santa Cruz e Hospital Universitário Evangélico Mackenzie, dedicando-se ao cuidado integral da saúde feminina com foco em cirurgias minimamente invasivas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção Serviços */}
+      <section id="servicos" className="py-16 px-4 bg-[#f8e8d9]">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#8c6b5d] mb-12">Serviços</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-[#a08476]">Consultas Ginecológicas</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600">Rotina ginecológica, prevenção, diagnóstico e tratamento de doenças.</CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-[#a08476]">Pré-Natal e Obstetrícia</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600">Acompanhamento completo da gestação, parto e pós-parto.</CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-[#a08476]">Cirurgia Ginecológica</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600">Procedimentos minimamente invasivos (videolaparoscopia, histeroscopia).</CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-[#a08476]">Ginecologia Endócrina</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600">Tratamento de distúrbios hormonais, climatério e menopausa.</CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-[#a08476]">Contracepção</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600">Orientação e inserção de métodos contraceptivos (DIU, Implanon).</CardDescription>
+              </CardContent>
+            </Card>
+             <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-[#a08476]">Endoscopia Ginecológica</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600">Diagnóstico e tratamento por videolaparoscopia e histeroscopia.</CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção Blog */}
+      <section id="blog" className="py-16 px-4 bg-white">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#8c6b5d] mb-12">Blog</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Exemplo de posts - Idealmente viriam de um CMS ou arquivos Markdown */}
+            <Card className="bg-[#f8e8d9] shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-[#a08476]">Queixas Comuns no Consultório</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600 mb-4">Entenda as causas e tratamentos para as queixas ginecológicas mais frequentes.</CardDescription>
+                <Button variant="link" asChild className="text-[#d4a38c] p-0 h-auto">
+                  <Link href="/blog/blog_queixas_comuns">Leia mais</Link>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="bg-[#f8e8d9] shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-[#a08476]">Cirurgias Ginecológicas Comuns</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600 mb-4">Conheça os procedimentos cirúrgicos mais realizados na ginecologia.</CardDescription>
+                 <Button variant="link" asChild className="text-[#d4a38c] p-0 h-auto">
+                  <Link href="/blog/blog_cirurgias_comuns">Leia mais</Link>
+                </Button>
+              </CardContent>
+            </Card>
+             <Card className="bg-[#f8e8d9] shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-[#a08476]">Videolaparoscopia Ginecológica</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600 mb-4">Saiba mais sobre esta técnica minimamente invasiva e suas aplicações.</CardDescription>
+                 <Button variant="link" asChild className="text-[#d4a38c] p-0 h-auto">
+                  <Link href="/blog/blog_videolaparoscopia">Leia mais</Link>
+                </Button>
+              </CardContent>
+            </Card>
+             <Card className="bg-[#f8e8d9] shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="text-[#a08476]">Histeroscopia Diagnóstica e Cirúrgica</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600 mb-4">Entenda como a histeroscopia ajuda no diagnóstico e tratamento intrauterino.</CardDescription>
+                 <Button variant="link" asChild className="text-[#d4a38c] p-0 h-auto">
+                  <Link href="/blog/blog_histeroscopia">Leia mais</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Seção Contato */}
+      <section id="contato" className="py-16 px-4 bg-[#fbf0e4]">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#8c6b5d] mb-8">Contato</h2>
+          <div className="max-w-3xl mx-auto text-gray-700 space-y-6">
+            <p>Agende sua consulta ou tire suas dúvidas entrando em contato:</p>
+            <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+              <div className="text-center">
+                <h3 className="font-semibold text-[#a08476] mb-2">Clínica Madri</h3>
+                <p>R. Padre Anchieta, 2050, Sala 1001</p>
+                <p>Bigorrilho, Curitiba - PR</p>
+                <div className="flex justify-center items-center space-x-2 mt-2">
+                  <Phone size={18} className="text-[#d4a38c]" />
+                  <a href="tel:+554135039580" className="text-[#8c6b5d] hover:text-[#a08476]">(41) 3503-9580</a>
+                </div>
+                 <div className="flex justify-center items-center space-x-2 mt-2">
+                  <MessageCircle size={18} className="text-[#25D366]" />
+                  <a href="https://wa.me/5541992250305" target="_blank" rel="noopener noreferrer" className="text-[#8c6b5d] hover:text-[#a08476]">(41)  99225-0305 (WhatsApp)</a>
                 </div>
               </div>
-              {/* Local 2: Clínica Madri */}
-              <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                <h3 className="text-2xl font-semibold text-[#8c6b5d] mb-4">Clínica Madri</h3>
-                <div className="space-y-3 text-[#4a4a4a]">
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="w-5 h-5 text-[#a08476] mt-1 flex-shrink-0" />
-                    <span>Av. Gen. Flores da Cunha, 1811 - Vila Imbui, Cachoeirinha - RS, 94940-111</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                     <span className="flex-shrink-0">(51) 3470-4123</span>
-                     <a href="tel:+555134704123" title="Ligar" className="hover:text-[#8c6b5d] ml-2">
-                      <Phone className="w-5 h-5 text-[#a08476]" />
-                    </a>
-                    <a href="https://wa.me/555134704123" title="WhatsApp" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-                      <WhatsAppIcon />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Instagram Link */}
-            <div className="text-center mt-12">
-              <h3 className="text-xl font-semibold text-[#8c6b5d] mb-3">Siga-me no Instagram</h3>
-              <a href="https://www.instagram.com/kerellynf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 text-[#a08476] hover:text-[#8c6b5d]">
-                <Instagram className="w-6 h-6" />
-                <span className="text-lg">@kerellynf</span>
-              </a>
+              {/* Adicionar mapa ou outras informações se necessário */}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </main>
-      <Footer />
-    </div>
+      {/* Rodapé */}
+      <footer className="py-6 px-4 bg-[#f8e8d9] text-center">
+        <p className="text-sm text-[#a08476]">&copy; {new Date().getFullYear()} Dra. Kérellyn Follador. Todos os direitos reservados.</p>
+        {/* Links para redes sociais, etc. */}
+      </footer>
+    </main>
   );
 }
-
