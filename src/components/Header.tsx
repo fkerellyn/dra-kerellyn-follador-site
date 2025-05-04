@@ -6,16 +6,15 @@ const Header = () => {
   return (
     <header className="bg-[#fbf0e4] shadow-md sticky top-0 z-50">
       <nav className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <Link href="#inicio">
-          {/* Usar o componente Image do Next.js para o novo SVG de alta qualidade */}
+        <Link href="#inicio" className="flex items-center">
+          {/* Usar o componente Image do Next.js para o PNG final */}
           <Image 
-            src="/images/logo-symbol-nova.svg" // Atualizado para o novo arquivo SVG
+            src="/images/logo-simbolo-menu.png" // Caminho para o arquivo PNG na pasta public/images
             alt="Símbolo Dra. Kérellyn Follador" 
-            width={48} // Manter ou ajustar largura conforme necessário para qualidade
-            height={48} // Manter ou ajustar altura conforme necessário para qualidade
+            width={64} // Aumentar um pouco a dimensão base para melhor qualidade em telas maiores
+            height={64} // Aumentar um pouco a dimensão base para melhor qualidade em telas maiores
             className="h-10 md:h-12 w-auto" // Manter classes de altura responsiva, w-auto para proporção
-            priority // Opcional: priorizar carregamento
-            unoptimized={true} // Adicionado para tentar forçar renderização SVG direta
+            priority // Priorizar carregamento da logo
           />
         </Link>
         {/* Menu */}
@@ -32,4 +31,3 @@ const Header = () => {
 };
 
 export default Header;
-
