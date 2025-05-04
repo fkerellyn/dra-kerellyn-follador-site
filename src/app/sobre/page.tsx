@@ -31,7 +31,7 @@ const SobrePage = () => {
               Sou médica formada pela Universidade Comunitária da Região de Chapecó (UNOCHAPECÓ) em 2019. Minha paixão pela saúde da mulher me levou a buscar especialização em Ginecologia e Obstetrícia pela Santa Casa de Misericórdia de Porto Alegre.
             </p>
             <p className="mb-4">
-              Com o objetivo de oferecer um cuidado ainda mais completo e especializado, realizei subespecialização em Oncologia Ginecológica, também na Santa Casa. Atualmente, sou mestranda na mesma instituição, aprofundando meus conhecimentos para trazer o que há de mais atual para minhas pacientes.
+              Com o objetivo de oferecer um cuidado ainda mais completo e especializado, realizei subespecialização com ênfase em Oncologia Ginecológica, também na Santa Casa. Atualmente, sou mestranda na mesma instituição, aprofundando meus conhecimentos para trazer o que há de mais atual para minhas pacientes.
             </p>
             <p className="mb-4">
               Estou em constante atualização e, no momento, em capacitação em Cirurgia Robótica, buscando sempre as técnicas mais avançadas e minimamente invasivas. Possuo também o título de Patologista do Trato Genital Inferior, o que me permite um diagnóstico preciso e um tratamento direcionado para diversas condições.
