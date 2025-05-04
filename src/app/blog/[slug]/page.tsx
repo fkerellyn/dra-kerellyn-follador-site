@@ -2,13 +2,18 @@ import fs from 'fs';
 import path from 'path';
 import ReactMarkdown from 'react-markdown';
 import { notFound } from 'next/navigation';
+import type { Metadata, ResolvingMetadata } from 'next';
 
-// Define a interface para as props da página
-interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
+// Define a interface para os parâmetros esperados
+interface Params {
+  slug: string;
 }
+
+// Define a interface para as props da página usando PageProps do Next.js
+type Props = {
+  params: Params;
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 // Função para buscar o conteúdo do post em Markdown
 async function getPostContent(slug: string) {
@@ -34,7 +39,10 @@ async function getPostContent(slug: string) {
 }
 
 // Metadados dinâmicos (Opcional, mas bom para SEO)
-export async function generateMetadata({ params }: BlogPostPageProps) {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const post = await getPostContent(params.slug);
   return {
     title: `${post?.title ?? 'Artigo do Blog'} | Dra. Kérellyn Follador`,
@@ -43,7 +51,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 
 
 // Componente da página do post
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params }: Props) {
   const { slug } = params;
   const post = await getPostContent(slug);
 
@@ -80,7 +88,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 }
 
 // Função para gerar rotas estáticas
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<Params[]> {
   const slugs = [
     'blog_cirurgias_comuns',
     'blog_queixas_comuns',
