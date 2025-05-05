@@ -110,7 +110,7 @@ export default function Home() {
               {/* Service Cards */}
               <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <h3 className="text-xl font-semibold text-[#8c6b5d] mb-3">Consultas Ginecológicas</h3>
-                <p className="text-[#4a4a4a]">Atendimento completo para a saúde da mulher em todas as fases da vida, incluindo exames preventivos, acompanhamento de rotina, diagnóstico e tratamento de condições ginecológicas.</p>
+                <p className="text-[#4a4a4a]">Atendimento completo para a saúde da mulher em todas as fases da vida, incluindo exames preventivos, orientação de método contraceptivo (inserção de DIU e Implanon), climatério, acompanhamento de rotina, diagnóstico e tratamento de condições ginecológicas.</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
                 <h3 className="text-xl font-semibold text-[#8c6b5d] mb-3">Cirurgia Ginecológica</h3>
