@@ -1,9 +1,16 @@
 import React from 'react';
-import './globals.css'; // Assuming Tailwind CSS setup is here
+import Header from '@/components/Header'; // Importa o Header
+import Footer from '@/components/Footer'; // Importa o Footer
+import './globals.css'; // Mantém a importação do CSS global
+import { Inter } from 'next/font/google'; // Exemplo de importação de fonte (ajuste se usar outra)
+
+// Configuração da fonte (exemplo, ajuste se necessário)
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Dra. Kérellyn Follador - Ginecologia e Cirurgia Ginecológica',
-  description: 'Site profissional da Dra. Kérellyn Follador, especialista em Ginecologia, Cirurgia Ginecológica e Oncologia Ginecológica em Porto Alegre.',
+  description: 'Site profissional da Dra. Kérellyn Follador, especialista em Ginecologia, Cirurgia Ginecológica e Oncologia Ginecológica em Porto Alegre e Cachoeirinha.',
+  // Outros metadados como keywords, open graph, etc., podem ser adicionados aqui
 };
 
 export default function RootLayout({
@@ -12,17 +19,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className="scroll-smooth"> {/* Adiciona scroll-smooth para navegação suave */}
       <head>
-        {/* Favicon links, etc. can go here */}
-        <link rel="icon" href="/favicon.ico" sizes="any" /> {/* Example favicon */}
+        {/* Favicon links, etc. */}
+        <link rel="icon" href="/images/logo-simbolo-menu.png" type="image/png" /> {/* Usando o símbolo como favicon */}
       </head>
-      <body className="bg-[#fdf6ec] text-[#4a4a4a] font-sans flex flex-col min-h-screen">
-        {/* Header component will be added later */}
-        <main className="flex-grow">{children}</main>
-        {/* Footer component will be added later */}
+      {/* Aplica a fonte ao body e garante flex-col e min-h-screen */}
+      <body className={`${inter.className} bg-[#fffaf5] text-[#4a4a4a] flex flex-col min-h-screen`}>
+        <Header /> {/* Adiciona o Header aqui, antes do conteúdo principal */}
+        <main className="flex-grow">{children}</main> {/* Conteúdo da página específica */}
+        <Footer /> {/* Adiciona o Footer aqui, depois do conteúdo principal */}
       </body>
     </html>
   );
 }
-
