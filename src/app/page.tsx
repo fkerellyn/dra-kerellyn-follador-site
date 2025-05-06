@@ -74,10 +74,10 @@ export default function Home() {
             <div className="w-full md:w-2/3 text-[#4a4a4a]">
               <h3 className="text-2xl font-semibold text-[#8c6b5d] mb-4">Dra. Kérellyn Follador</h3>
               <p className="mb-4">
-                Sou médica formada pela Universidade Comunitária da Região de Chapecó (UNOCHAPECÓ) em 2019. Minha paixão pela saúde da mulher me levou a buscar especialização em Ginecologia e Obstetrícia pela Santa Casa de Misericórdia de Porto Alegre.
+                Sou médica formada pela Universidade Comunitária da Região de Chapecó (UNOCHAPECÓ). Minha paixão pela saúde da mulher me levou a buscar especialização em Ginecologia e Obstetrícia pela Santa Casa de Porto Alegre.
               </p>
               <p className="mb-4">
-                Com o objetivo de oferecer um cuidado ainda mais completo e especializado, realizei subespecialização em Oncologia Ginecológica, também na Santa Casa. Atualmente, sou mestranda em Patologia na UFCSPA, aprofundando meus conhecimentos para trazer o que há de mais atual para minhas pacientes.
+                Com o objetivo de oferecer um cuidado ainda mais completo e especializado, realizei subespecialização com enfoque em Oncoginecologia e Cirurgia Ginecológica, também na Santa Casa. Atualmente, sou mestranda em Patologia na UFCSPA, aprofundando meus conhecimentos para trazer o que há de mais atual para minhas pacientes.
               </p>
               <p className="mb-4">
                 Estou em constante atualização e, no momento, em capacitação em Cirurgia Robótica na Santa Casa, buscando sempre as técnicas mais avançadas e minimamente invasivas.
@@ -90,7 +90,7 @@ export default function Home() {
               </p>
               <h4 className="text-xl font-semibold text-[#8c6b5d] mt-6 mb-3">Formação e Títulos:</h4>
               <ul className="list-disc list-inside space-y-1">
-                <li>Graduação em Medicina - UNOCHAPECÓ (2019)</li>
+                <li>Graduação em Medicina - UNOCHAPECÓ </li>
                 <li>Residência Médica em Ginecologia e Obstetrícia - Santa Casa de Porto Alegre</li>
                 <li>Subespecialização em Oncologia Ginecológica - Santa Casa de Porto Alegre</li>
                 <li>Mestranda em Patologia - UFCSPA</li>
